@@ -3,14 +3,11 @@ import pandas as pd
 import joblib
 import numpy as np
 
-
-#load trained xgboost model
 model=joblib.load('src/models/xgb_model.pkl')
 
 st.title("TeleCom Customer Churn Prediction App")
 st.header("Enter Customer Details")
 
-#input fields for input features
 col1,col2=st.columns(2)
 
 with col1:
@@ -26,7 +23,6 @@ with col2:
 internet_service = st.selectbox("Internet Service", options=["Fiber Optic", "DSL", "Unknown"])
 tech_support = st.selectbox("Is tech support required", options=["Yes", "No"])
 
-#prepare the input data for prediction
 def prepare_input(tenure, monthly_charges, contract_type, internet_service):
     input_data=pd.DataFrame({
         'Age': [age],
@@ -46,15 +42,12 @@ def prepare_input(tenure, monthly_charges, contract_type, internet_service):
     })
     return input_data
 
-#Button creation
 if st.button("Predict Churn"):
     input_df=prepare_input(tenure,monthly_charges,contract_type,internet_service)
 
-    #prediction
     prediction=model.predict(input_df)[0]
     prediction_prob=model.predict_proba(input_df)[0]
 
-    #print results
     churn_result=("Unfortunately, this customer is likely to leave our telecom services." if prediction==1 
                 else "Great news! This customer is likely to stay with our telecom network.")
     st.markdown(f"<div style='text-align:center; font-size:32px; font-weight:bold; padding:20px;'>{churn_result}</div>",

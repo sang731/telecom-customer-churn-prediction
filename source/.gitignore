@@ -1,6 +1,3 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
-
-# Python-related ignores
 __pycache__/
 *.pyc
 *.pyo
@@ -12,38 +9,23 @@ env.bak/
 *.egg-info/
 *.egg
 
-# Virtual environment configuration
-pyvenv.cfg
 
-# Jupyter Notebook
+pyvenv.cfg
 *.ipynb_checkpoints
 *.ipynb 
 
-# macOS system files
 .DS_Store
-
-# Windows system files
 Thumbs.db
 
-# IDE and editor files
 .idea/  # PyCharm
 *.vscode/  # VS Code
 *.sublime-workspace
 *.sublime-project
 
-# Logs and temporary files
 *.log
 *.out
 
-# Streamlit cache
 .streamlit/
-
-# Dependency lock files (if not using requirements.txt directly)
 pip-lock.txt
 
-# Ignore OS-generated files
 *.swp
-
-# Custom ignores (add as needed)
-# e.g., exclude specific large files or folders
-# large_folder/
