@@ -1,47 +1,105 @@
 # Customer Churn Prediction Project
-A machine learning project to predict customer churn using multiple classification models and choosing the model with the highest accuracy(XGBoost), 
-deployed with a Streamlit web app for interactive use.
+A machine learning project to predict customer churn using multiple classification models and selecting the best-performing model (XGBoost).
+The project also includes a Streamlit web application for interactive customer churn prediction.
+
+## Features
+- Data preprocessing and feature engineering
+- Multiple classification models comparison
+- XGBoost model with highest accuracy
+- Interactive Streamlit web application
+- Model saving and reuse using pickle
+
+## Project Structure
+CUSTOMER-CHURN-PROJECT/
+│
+├── data/
+│   └── customer_churn_data.csv
+│
+├── models/
+│   └── xgb_model.pkl
+│
+├── src/
+│   ├── app/
+│   │   └── customer-churn-streamlit-app.py
+│   │
+│   └── prediction/
+│       └── customer_churn_prediction.py
+│
+├── requirements.txt
+└── README.md
 
 ## Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/CUSTOMER-CHURN-PROJECT.git
-   cd CUSTOMER-CHURN-PROJECT
+### 1. Clone the Repository
+git clone https://github.com/your-username/CUSTOMER-CHURN-PROJECT.git
+cd CUSTOMER-CHURN-PROJECT
 
-2. Create a virtual environment (optional but recommended):
-bashpython -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+### 2. Create a Virtual Environment (Optional)
+python -m venv venv
 
+Activate the virtual environment:
 
-3. Install the required dependencies: bashpip install -r requirements.txt
+#### Windows
+venv\Scripts\activate
 
-Usage
-Run the Streamlit App
+#### macOS/Linux
+source venv/bin/activate
 
-Launch the web app to interact with the customer churn prediction model:
-bashstreamlit run src/app/customer-churn-streamlit-app.py
+### 3. Install Dependencies
+pip install -r requirements.txt
 
-Open your browser and navigate to the provided local URL (http://localhost:8501).
-Input customer data to get churn predictions.
+## Run the Streamlit Application Locally
+Launch the Streamlit web app:
+streamlit run src/app/customer-churn-streamlit-app.py
 
-Train the Model (Optional)
+After running the command, open the local URL displayed in the terminal  
+(usually `http://localhost:8501`) in your browser.
 
-If you need to retrain the model, use the prediction script:
-bashpython src/prediction/customer_churn_prediction.py
+Use the application to input customer details and get churn predictions.
 
-The trained model will be saved as models/xgb_model.pkl.
+## Train the Model
 
-Dataset
-File: data/customer_churn_data.csv
-Description: Contains customer data with features like usage patterns, demographics, and churn labels.
-Note: If the dataset is excluded due to size, download it from [insert link] and place it in the data/ folder.
+To retrain the model:
+python src/prediction/customer_churn_prediction.py
 
-Model
-Type: XGBoost
-File: models/xgb_model.pkl
-Details: Pre-trained model for churn prediction. Use the Streamlit app to test predictions.
+The trained model will be saved in:
+models/xgb_model.pkl
 
-Prerequisites
-Python 3.8+
-Git
+## Dataset
+- File: `data/customer_churn_data.csv`
+- Description:
+  Contains customer-related information such as demographics, usage patterns, and churn labels used for training and testing the model.
+
+## Model Information
+- Model Type: XGBoost Classifier
+- Saved Model File: `models/xgb_model.pkl`
+The model is trained to predict whether a customer is likely to churn based on input features.
+
+## Deployment
+
+This project can be deployed using Streamlit Community Cloud.
+
+### Deployment Steps
+1. Push the project to GitHub
+2. Login to Streamlit Cloud
+3. Connect your GitHub repository
+4. Select the main app file:
+src/app/customer-churn-streamlit-app.py
+
+5. Deploy the application
+
+## Live Demo
+Add your deployed Streamlit application link here:
+https://your-app-name.streamlit.app
+
+## Prerequisites
+- Python 3.8+
+- Git
+
+## Technologies Used
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- XGBoost
+- Streamlit
